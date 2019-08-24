@@ -291,6 +291,22 @@ app.get("/profile", (req, res) => {
     return res.status(200).send("hello from profile page");
 });
 
+// source for setting up prod environment:
+// https://www.udemy.com/node-with-react-fullstack-web-development/learn/lecture/7605196#overview
+if (process.env.NODE_ENV === 'production') {
+    // if an unknown page is requested, it is assumed to be a react Router route
+    // and a search for a compiled, static file will be performed
+    app.use(express.static('client/build'));
+
+    // the index.html file will be re-served, otherwise, and the front-end will
+    // handle the request.
+    const path = requrie('path');
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+
+}
+
 // listen on specified port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
