@@ -40,15 +40,26 @@ app.use(session({
 app.get("/stats/add", async (req, res) => {
 
     const { workoutId, data } = await req.query;
-    console.log('workoutId: ' + workoutId)
     const dataStr = await JSON.parse(data)
-    console.log('dataStr')
-    console.log(dataStr)
 
     // TODO: create query and insert
-    // Add date to workout table with workoutId
     // Add all details to stats table with exerciseId and workoutId
     // Replace exerciseId details in exercises table with last set details
+    dataStr.forEach(async exercise => {
+        const length = exercise.length -1;
+        let i = 0;
+        console.log('\nexerciseId: ' + exercise[length]);
+        console.log('exercise name: ' + exercise[length - 1]);
+        for (i = 0; i < length - 2; i++) {
+            console.log(exercise[i])
+        }
+    })
+    return res.json({
+        data: {
+            workoutId: workoutId,
+            dataStr: dataStr
+        }
+    });
 });
 
 // retrieve exercises
