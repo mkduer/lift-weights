@@ -14,34 +14,38 @@ This app tracks and supports an individual's weight-lifting goals, allowing for 
 * check if `nvm` (node.js version manager) and `nodejs` are installed  
 `nvm -v`  
 `node -v`  
-
 * if versions are not available, then install `nvm` (code source: [nvm repo](https://github.com/nvm-sh/nvm))   
 `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash`  
-
 * view the latest versions for `nvm `  
 `nvm ls-remote`  
-
 * install latest stable version of node (`v10.16.0 Latest LTS: Dudnium` was used for this project)  
 `nvm install 10.16.0 ` 
-
 * Close terminal and open a new one to ensure changes are applied. Check that you have the correct version  
 `node -v  `
+* clone the repository   
+`git clone git@github.com:mkduer/weight-lifting-app.git ` 
+* Install dependencies for back-end (using server path: `weight-lifting/server`):  
+  `cd weight-lifting/server `  
+  `npm install`
+* Install dependencies for front-end (using client path: `weight-lifting/server/client`):  
+  `cd client `  
+  `npm install`
 
 ---
 
-#### [build](#build)
+#### [development build](#dev_build)
 
-* clone the repository   
-`git clone git@github.com:mkduer/weight-lifting-app.git ` 
-* Install dependencies for backend (using server path: `weight-lifting/server`):  
-  `cd weight-lifting/server `  
-  `npm install`
-* Install dependencies for frontend (using client path: `weight-lifting/server/client`):  
-  `cd client `  
-  `npm install`
 * run the app in the browser from the server-side (using server path: `weight-lifting/server`)  
   `npm run dev`  
 * your browser should open with the application OR you can visit `localhost:3000`
+
+---
+
+#### [production build](#prod_build)
+
+* create a static build of the front-end as it *currently* exists (using client path: `weight-lifting/server/client`)  
+  `npm run build`  
+* this will create a _weight-lifting/server/client/_**_build_** directory with the static contents
 
 ---
 
