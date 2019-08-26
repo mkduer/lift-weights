@@ -4,6 +4,7 @@ const express = require('express');  // express framework
 const mysql = require('mysql');      // mysql database
 const cors = require('cors');        // cross-origin requirements middleware
 const session = require('express-session'); // allows for session creation
+const mysqlStore = require('express-mysql-session')(session);
 
 // running express application object
 const app = express();               
@@ -15,6 +16,8 @@ var db = mysql.createConnection({
     password : 'session',
     database : 'gym'
 });
+
+var sessionStore = new mysqlStore(db);
 
 // connected to database
 db.connect(err => {
@@ -32,6 +35,7 @@ app.use(cors());
 app.use(session({
     secret: 'super secret wip',
     resave: false,
+    store: sessionStore,
     saveUninitialized: true
 }));
 
