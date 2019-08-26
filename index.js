@@ -30,7 +30,7 @@ app.use(cors());
 
 // setup session creation
 app.use(session({
-    secret: keys.sessionSecret,
+    secret: 'super secret wip',
     resave: false,
     saveUninitialized: true
 }));
