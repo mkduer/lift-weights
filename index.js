@@ -5,12 +5,9 @@ const mysql = require('mysql');      // mysql database
 const cors = require('cors');        // cross-origin requirements middleware
 const session = require('express-session'); // allows for session creation
 const mysqlStore = require('express-mysql-session')(session);
-const timeout = require('connect-timeout');
 
 // running express application object
 const app = express();
-app.use(timeout('5s'));
-app.use(haltOnTimedout);
 
 // create a local database connection if in development
 if (process.env.NODE_ENV != 'production') {
@@ -313,10 +310,6 @@ if (process.env.NODE_ENV === 'production') {
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
-}
-
-function haltOnTimedout (req, res, next) {
-    if (!req.timedout) next()
 }
 
 // listen on specified port
