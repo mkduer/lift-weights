@@ -10,6 +10,7 @@ const mysqlStore = require('express-mysql-session')(session);
 const app = express();               
 
 // create a database connection
+/*
 var db = mysql.createConnection({
     host : 'localhost',
     user : 'trainer',
@@ -26,18 +27,21 @@ db.connect(err => {
     }
     console.log("Connected to DB!")
 });
+*/
 
 // relax cross-origin policy to account for two servers 
 // using different ports while in development
 app.use(cors());                                
 
 // setup session creation
+/*
 app.use(session({
     secret: 'super secret wip',
     resave: false,
     store: sessionStore,
     saveUninitialized: true
 }));
+*/
 
 // add new statistics
 app.get("/stats/add", async (req, res) => {
