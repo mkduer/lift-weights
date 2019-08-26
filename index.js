@@ -4,7 +4,6 @@ const express = require('express');  // express framework
 const mysql = require('mysql');      // mysql database
 const cors = require('cors');        // cross-origin requirements middleware
 const session = require('express-session'); // allows for session creation
-const keys = require('./config/keys');      // key storage
 
 // running express application object
 const app = express();               
