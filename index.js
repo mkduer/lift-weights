@@ -9,35 +9,38 @@ const mysqlStore = require('express-mysql-session')(session);
 // running express application object
 const app = express();               
 
-// create a database connection
-var db = mysql.createConnection({
-    host : 'localhost',
-    user : 'trainer',
-    password : 'session',
-    database : 'gym'
-});
+// create a local database connection if in development
+if (process.env.NODE_ENV != 'production') {
+    var db = mysql.createConnection({
+        host : 'localhost',
+        user : 'trainer',
+        password : 'session',
+        database : 'gym'
+    });
 
-var sessionStore = new mysqlStore(db);
+    var sessionStore = new mysqlStore(db);
 
-// connected to database
-db.connect(err => {
-    if(err) {
-        return err;
-    }
-    console.log("Connected to DB!")
-});
+    // connected to database
+    db.connect(err => {
+        if(err) {
+            return err;
+        }
+        console.log("Connected to DB!")
+    });
+
+    // setup session creation
+    app.use(session({
+        secret: 'super secret wip',
+        resave: false,
+        store: sessionStore,
+        saveUninitialized: true
+    }));
+}
 
 // relax cross-origin policy to account for two servers 
 // using different ports while in development
 app.use(cors());                                
 
-// setup session creation
-app.use(session({
-    secret: 'super secret wip',
-    resave: false,
-    store: sessionStore,
-    saveUninitialized: true
-}));
 
 // add new statistics
 app.get("/stats/add", async (req, res) => {
