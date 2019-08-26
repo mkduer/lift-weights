@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "722559d13fbc1c74f14e8d24be35c3af",
+    "revision": "aa366fe652fa6556810960ca38c7fcb3",
     "url": "/mkduer/lift-weights/blob/master/README.md/index.html"
   },
   {
-    "revision": "1fdfd95a0ede96e8c89e",
+    "revision": "fa9a70e1ce7f87cd6ed7",
     "url": "/mkduer/lift-weights/blob/master/README.md/static/css/main.d3dd29d2.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mkduer/lift-weights/blob/master/README.md/static/js/2.bbe81cef.chunk.js"
   },
   {
-    "revision": "1fdfd95a0ede96e8c89e",
-    "url": "/mkduer/lift-weights/blob/master/README.md/static/js/main.7ae5aef4.chunk.js"
+    "revision": "fa9a70e1ce7f87cd6ed7",
+    "url": "/mkduer/lift-weights/blob/master/README.md/static/js/main.34c3d6cc.chunk.js"
   },
   {
     "revision": "329f854babaa28f61018",

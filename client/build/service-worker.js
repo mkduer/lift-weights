@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mkduer/lift-weights/blob/master/README.md/precache-manifest.e2f50684f47e3392d27402cdc7b29a05.js"
+  "/mkduer/lift-weights/blob/master/README.md/precache-manifest.cc7b093bf57ca5b579a4297a977630ec.js"
 );
 
 self.addEventListener('message', (event) => {
