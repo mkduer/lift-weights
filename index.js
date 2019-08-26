@@ -299,7 +299,7 @@ if (process.env.NODE_ENV === 'production') {
 
     // the index.html file will be re-served, otherwise, and the front-end will
     // handle the request.
-    const path = requrie('path');
+    const path = require('path');
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
